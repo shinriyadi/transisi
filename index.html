@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="side-1">
+        <img src="https://cdn.pixabay.com/photo/2012/04/10/17/02/pattern-26432_960_720.png" alt="" class="polkadot top">
+        <img src="https://cdn.pixabay.com/photo/2012/04/10/17/02/pattern-26432_960_720.png" alt=""
+          class="polkadot bottom">
+        <div class="nav">
+          <img src="https://icon-library.net/images/menu-icon-white-png/menu-icon-white-png-27.jpg" alt="">
+        </div>
+        <div class="content">
+          <div class="header">
+            <h2>Hi Samantha</h2>
+            <span>Welcome back to the workplace, we missed You!</span>
+          </div>
+
+          <div class="search">
+            <form action="">
+              <i class="fa fa-search icon">
+              </i>
+              <input class="input-field" type="text" placeholder="Search Task of Project...">
+            </form>
+          </div>
+
+          <div class="project">
+            <h2>Projects <span>(13)</span></h2>
+
+            <div class="list">
+              <div class="pic">
+                <h2>GH</h2>
+                <img src="https://cdn.dribbble.com/users/2407235/screenshots/6303151/abstract_design_2x.png">
+                <span>Green House</span>
+              </div>
+              <div class="pic">
+                <h2>CP</h2>
+                <img src="https://i.ytimg.com/vi/DHXcVm3Eg0U/maxresdefault.jpg" class="active">
+                <span>Cyber Punk</span>
+              </div>
+              <div class="pic notif">
+                <h2>EC</h2>
+                <img src="https://d39l2hkdp2esp1.cloudfront.net/img/eps/E4935_2x/c/E4935_01.jpg?20190522042533">
+                <span>Easy Crypto</span>
+              </div>
+              <div class="pic">
+                <h2>TA</h2>
+                <img
+                  src="https://videohive.img.customer.envatousercontent.com/files/243749253/preview_image.jpg?auto=compress%2Cformat&fit=crop&crop=top&max-h=8000&max-w=590&s=da844794c5494aca3a6c093180766c8d">
+                <span>Travel App</span>
+              </div>
+              <div class="pic notif">
+                <h2>LP</h2>
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjUe83BLhRcRq_qt-uykP4jqK7o_FAbd7dbvVwzftc-yVRbYQjDA">
+                <span>Landing Page</span>
+              </div>
+              <div class="pic more">
+                <h2>8+</h2>
+                <img src="https://cdn.dribbble.com/users/2407235/screenshots/6303151/abstract_design_2x.png">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-2">
+        <div class="content">
+          <div class="header">
+            <div class="title">
+              <h2>Cyber Punk</h2>
+              <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, itaque.</span>
+            </div>
+            <div class="user">
+              <div class="avatar">
+                <img src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg" alt="">
+                <img
+                  src="https://previews.123rf.com/images/metelsky/metelsky1809/metelsky180900233/109815470-man-avatar-profile-male-face-icon-vector-illustration-.jpg"
+                  alt="">
+                <img
+                  src="https://cdn5.vectorstock.com/i/1000x1000/45/79/male-avatar-profile-picture-silhouette-light-vector-4684579.jpg"
+                  alt="">
+              </div>
+              <div class="plus">
+                <i class="fa fa-plus"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="main">
+            <div class="header">
+              <h2>Today</h2>
+              <div class="doted">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
+            </div>
+
+            <div class="p-list">
+              <div class="list">
+                <i class="fa fa-check"></i>
+                <span>Create initial layout for homepage</span>
+                <div class="status approved">Approved</div>
+              </div>
+            </div>
+          </div>
+          <div class="add-list">
+            <i class="fa fa-plus"></i>
+          </div>
+        </div>
+      </div>
+      <div class="shadow"></div>
+    </div>
+  </div>
+
+  <script>
+    let notif = document.querySelectorAll(".pic.notif");
+    notif.forEach(el => el.appendChild(document.createElement("div")));
+
+    const todo = [
+      'Create initial layout for homepage',
+      'Fixing icon with transparent background',
+      'Discution regarding workflow improvement',
+      'Create cuotation for app redesign project'
+    ];
+    const status = {
+      'approved': 'Approved',
+      'inprogress': 'In Progress',
+      'inreview': 'In Review',
+      'waiting': 'Waiting'
+    };
+    const statusKey = Object.keys(status);
+
+    let plist = document.querySelector(".side-2 .p-list");
+
+    todo.forEach((todo, i) => {
+      if (i > 1) {
+        plist.innerHTML += `
+        <div class="list">
+          <i class="fa fa-circle"></i>
+            <span>${todo}</span>
+            <div class="status ${statusKey[i]}">${status[statusKey[i]]}</div>
+        </div>`
+      } else {
+        plist.innerHTML += `
+        <div class="list">
+          <i class="fa fa-check"></i>
+            <span>${todo}</span>
+            <div class="status ${statusKey[i]}">${status[statusKey[i]]}</div>
+        </div>`
+      }
+    });
+
+    document.querySelector('.add-list').addEventListener("click", addList);
+
+    function addList() {
+      let randOne = Math.floor(Math.random() * 4) + 0;
+      let randTwo = Math.floor(Math.random() * 4) + 0;
+      console.log(randOne);
+
+      if (randTwo > 1) {
+        plist.innerHTML += `
+          <div class="list">
+            <i class="fa fa-circle"></i>
+              <span>${todo[randOne]}</span>
+              <div class="status ${statusKey[randTwo]}">${status[statusKey[randTwo]]}</div>
+          </div>`
+      } else {
+        plist.innerHTML += `
+          <div class="list">
+            <i class="fa fa-check"></i>
+              <span>${todo[randOne]}</span>
+              <div class="status ${statusKey[randTwo]}">${status[statusKey[randTwo]]}</div>
+          </div>`
+      }
+    }
+  </script>
+</body>
+
+</html>
